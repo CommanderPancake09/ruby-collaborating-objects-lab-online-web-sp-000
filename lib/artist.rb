@@ -2,7 +2,7 @@ class Artist
   @@all = []
   attr_accessor :name, :songs
 
-  def initialization(name)
+  def initialize(name)
     @name = name
     save
   end
@@ -20,11 +20,11 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-    sef.find(name) ? self.find(name) : self.new(name)
+    self.find(name) ? self.find(name) : self.new(name)
   end
 
   def self.find(name)
-    self.all,find {|artist| artist.name == name}
+    self.all.find {|artist| artist.name == name }
   end
 
   def save
@@ -32,7 +32,6 @@ class Artist
   end
 
   def print_songs
-    sonfs.each {|song| puts song.name}
+    songs.each {|song| puts song.name}
   end
-
 end
